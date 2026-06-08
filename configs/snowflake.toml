@@ -1,0 +1,14 @@
+[cli.logs]
+save_logs = true
+level = "info"
+
+[connections]
+[connections.default] # bbr_snowflake_connection
+account = "xta53367.east-us-2.privatelink"
+user = "JCMADMIN@BBRPARTNERS.COM"
+authenticator = "SNOWFLAKE_JWT"
+private_key_file = "~/.rsa/rsa_key.p8"
+role = ""
+warehouse = ""
+database = ""
+schema = ""

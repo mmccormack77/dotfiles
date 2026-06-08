@@ -1,0 +1,1 @@
+alias azal='az account list -o table'

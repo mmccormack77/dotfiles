@@ -6,7 +6,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 # If debian-based system, install some necessary libraries
 if [ -f /etc/debian_version ]; then
     echo "Installing necessary libraries for Debian-based systems..."
-    sudo apt update && sudo apt install -y build-essential procps curl file git && sudo apt upgrade -y && sudo apt autoremove -y
+    sudo apt update && sudo apt install -y build-essential procps curl file git zip
 fi
 
 # Clone the repository
@@ -60,16 +60,25 @@ fi
 # Install custom_commands
 for plugin_dir in plugins/*; do
     if [ -d "$plugin_dir" ]; then
-        cp -rf "$plugin_dir" "$HOME/.oh-my-zsh/custom/plugins"
+        cp -r "$plugin_dir" "$HOME/.oh-my-zsh/custom/plugins"
     fi
 done
 
 # Add .zshrc
-cp -f jm.zshrc $HOME/.zshrc
+cp -f de.zshrc $HOME/.zshrc
 
 # Add homebrew installs
 brew update
 brew bundle --file ./Brewfile
+
+# Install Claude Code
+if ! command -v claude &> /dev/null; then
+    echo "Installing Claude Code..."
+    npm install -g @anthropic-ai/claude-code
+else
+    echo "Updating Claude Code..."
+    claude update
+fi
 
 # Add starship toml
 mkdir -p $HOME/.config 
@@ -78,6 +87,16 @@ cp -f ./configs/starship.toml $HOME/.config/starship.toml
 # Add direnv toml
 mkdir -p $HOME/.config/direnv
 cp -f ./configs/direnv.toml $HOME/.config/direnv/direnv.toml
+
+# Add tlrc toml
+mkdir -p $HOME/.config/tlrc
+cp -f ./configs/tlrc.toml $HOME/.config/tlrc/config.toml
+
+# Add snowflake toml
+mkdir -p $HOME/.snowflake
+cp -f ./configs/snowflake.toml $HOME/.snowflake/config.toml
+chmod 0600 $HOME/.snowflake/config.toml
+snow --install-completion
 
 # Add .gitconfig
 cp -f ./configs/.gitconfig $HOME/.gitconfig

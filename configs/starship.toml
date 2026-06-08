@@ -8,6 +8,7 @@ $git_metrics\
 $python\
 $terraform\
 $docker_context\
+$azure\
 $hostname\
 $character\
 """
@@ -67,6 +68,12 @@ format = '[[ $time 󱑍 ](bg:#1C3A5E fg:#8DFBD2)]($style)'
 
 [aws]
 symbol = "  "
+
+[azure]
+disabled = false
+symbol = " "
+style = "bg:#007FFF"
+format = "[ $symbol($subscription) ]($style)"
 
 [buf]
 symbol = " "
