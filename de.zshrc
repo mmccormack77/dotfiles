@@ -67,18 +67,17 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # PATH updates
 # homebrew
-if [[ "$(uname)" == "Darwin" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+# Custom plugins
+export  PATH="$HOME/bin:$PATH"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python uv vscode kona jm docker docker-compose terraform claude_code)
+plugins=(git python uv vscode kona de docker docker-compose terraform azure custom_azure claude_code)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,13 +89,15 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Environment Variables
-export GIT_COMMIT_AUTHOR="Joel M <jmicaliz@gmail.com>"
+export GIT_COMMIT_AUTHOR="Joel Micalizzi <jmicalizzi@bbrpartners.com>"
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
+if [[ $TERM_PROGRAM == "vscode" ]]; then
+  export EDITOR='code --wait'
+elif [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nano'
- else
-  export EDITOR='nano'
+else
+  export EDITOR='code --wait'
 fi
 
 # Ensure that the shell is set to zsh
