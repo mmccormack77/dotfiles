@@ -19,6 +19,8 @@
 
             "Bash(grep:*)",
 
+            "Bash(terraform:*)",
+
             "Bash(uv run:*)",
 
             "mcp__claude_ai_Atlassian__atlassianUserInfo",
@@ -33,6 +35,9 @@
             "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql",
             "mcp__claude_ai_Atlassian__transitionJiraIssue",
 
+            "Read(//home/coder/repos/**)",
+
+            "WebFetch(domain:fivetran.com)",
             "WebSearch"
         ],
         "deny": [
