@@ -66,8 +66,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # PATH updates
-# homebrew
-export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+# Local user binaries (Starship, fzf, etc.)
+export PATH="$HOME/.local/bin:$PATH"
 
 # Custom plugins
 export  PATH="$HOME/bin:$PATH"
@@ -77,7 +77,7 @@ export  PATH="$HOME/bin:$PATH"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git python uv vscode kona de docker docker-compose terraform azure custom_azure claude_code)
+plugins=(git python vscode de docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -89,7 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Environment Variables
-export GIT_COMMIT_AUTHOR="Joel Micalizzi <jmicalizzi@bbrpartners.com>"
+export GIT_COMMIT_AUTHOR="Matthew McCormack <mmccormack@bbrpartners.com>"
 
 # Preferred editor for local and remote sessions
 if [[ $TERM_PROGRAM == "vscode" ]]; then

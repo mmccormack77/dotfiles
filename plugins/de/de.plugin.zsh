@@ -53,7 +53,7 @@ de_git_work_log(){
       echo "Processing $repo_name"
       cd "$dir"
       echo -e "\n===== $repo_name =====\n" >> ~/$output
-      git log --author="jmicalizzi@bbrpartners.com" --since="$from" --until="$to" --pretty=format:"%an | %ad | %s" --date=iso >> ~/$output
+      git log --author="mmccormack@bbrpartners.com" --since="$from" --until="$to" --pretty=format:"%an | %ad | %s" --date=iso >> ~/$output
       echo -e "" >> ~/$output # Adds a newline
     fi
   done
@@ -61,7 +61,7 @@ de_git_work_log(){
   # Also do ~/.dotfiles
   cd ~/.dotfiles
   echo -e "\n===== dotfiles =====\n" >> ~/$output
-  git log --author="jmicalizzi@bbrpartners.com" --since="$from" --until="$to" --pretty=format:"%an | %ad | %s" --date=iso >> ~/$output
+  git log --author="mmccormack@bbrpartners.com" --since="$from" --until="$to" --pretty=format:"%an | %ad | %s" --date=iso >> ~/$output
   echo -e "" >> ~/$output # Adds a newline
 
   cd "$start_dir"
