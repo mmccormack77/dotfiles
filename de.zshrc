@@ -68,6 +68,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # PATH updates
 # Local user binaries (Starship, fzf, etc.)
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.fzf/bin:$PATH"
 
 # Custom plugins
 export  PATH="$HOME/bin:$PATH"
